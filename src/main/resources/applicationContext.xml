@@ -13,6 +13,8 @@
     <bean id="myCricketCoach"
           class="com.evwhite.springlearning.coach.CricketCoach">
         <property name="fortuneService" ref="myFortune"/>
+        <property name="emailAddress" value="example@email.com"/>
+        <property name="team" value="Cracking Crickets"/>
     </bean>
 
     <bean id="myFortune"
