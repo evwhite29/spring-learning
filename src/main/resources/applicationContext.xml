@@ -10,6 +10,11 @@
         <constructor-arg ref="myFortune"/>
     </bean>
 
+    <bean id="myCricketCoach"
+          class="com.evwhite.springlearning.coach.CricketCoach">
+        <property name="fortuneService" ref="myFortune"/>
+    </bean>
+
     <bean id="myFortune"
           class="com.evwhite.springlearning.fortune.HappyFortuneService">
     </bean>
