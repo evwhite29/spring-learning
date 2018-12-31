@@ -20,6 +20,13 @@
         <property name="team" value="${first.team}"/>
     </bean>
 
+    <bean id="myTrackCoach"
+          class="com.evwhite.springlearning.coach.TrackCoach"
+          init-method="startupMethod"
+          destroy-method="cleanupMethod">
+        <constructor-arg name="fortuneService" ref="randomFortune"/>
+    </bean>
+
     <bean id="myFortune"
           class="com.evwhite.springlearning.fortune.HappyFortuneService">
     </bean>
