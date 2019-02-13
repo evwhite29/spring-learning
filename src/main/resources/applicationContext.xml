@@ -5,35 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
+    <context:component-scan base-package="com.evwhite.springlearning"/>
     <context:property-placeholder location="classpath:sport.properties"/>
-
-    <bean id="myCoach"
-          class="com.evwhite.springlearning.coach.BaseballCoach">
-        <constructor-arg ref="myFortune"/>
-    </bean>
-
-    <bean id="myCricketCoach"
-          class="com.evwhite.springlearning.coach.CricketCoach">
-        <property name="fortuneService" ref="randomFortune"/>
-        <property name="emailAddress" value="${first.email}"/>
-        <property name="team" value="${first.team}"/>
-    </bean>
-
-    <bean id="myTrackCoach"
-          class="com.evwhite.springlearning.coach.TrackCoach"
-          init-method="startupMethod"
-          destroy-method="cleanupMethod">
-        <constructor-arg name="fortuneService" ref="randomFortune"/>
-    </bean>
-
-    <bean id="myFortune"
-          class="com.evwhite.springlearning.fortune.HappyFortuneService">
-    </bean>
-
-    <bean id="randomFortune"
-          class="com.evwhite.springlearning.fortune.RandomFortuneService">
-    </bean>
-
 
 </beans>

@@ -1,12 +1,17 @@
 package com.evwhite.springlearning.coach;
 
 import com.evwhite.springlearning.fortune.FortuneService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TrackCoach implements Coach {
 
     private FortuneService fortuneService;
 
-    public TrackCoach(FortuneService fortuneService) {
+    @Autowired
+    public TrackCoach(@Qualifier("randomFortune") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
@@ -18,11 +23,4 @@ public class TrackCoach implements Coach {
         return "For track: " + fortuneService.getFortune();
     }
 
-    private void startupMethod() {
-        System.out.println("TrackCoach: inside startup method.");
-    }
-
-    private void cleanupMethod() {
-        System.out.println("TrackCoach: inside cleanup method.");
-    }
 }
